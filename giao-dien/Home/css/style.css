@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+#header__pc {
+  padding-top: 5px;
+}
+
+#header__pc .header__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 5px;
+}
+
+#header__pc .header__top .header__logo {
+  cursor: pointer;
+}
+
+#header__pc .header__top .header__search__bar {
+  margin-left: 50px;
+  background-color: #f2f3f5;
+  border-radius: 2px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-right: 50px;
+}
+
+#header__pc .header__top .header__search__bar input {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+#header__pc .header__top .header__search__bar input:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#header__pc .header__top .header__search__bar i {
+  color: #ff8d1b;
+  padding: 11px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#header__pc .header__top .header__search__bar i:hover {
+  color: white;
+  background: #ff8d1b;
+  cursor: pointer;
+}
+
+#header__pc .header__top .header__user {
+  font-weight: 600;
+}
+
+#header__pc .header__top .header__login {
+  margin-left: 50px;
+}
+
+#header__pc .header__top .header__login a {
+  color: black;
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#header__pc .header__top .header__login a:hover {
+  color: #ff8d1b;
+}
+
+#header__pc .header__bottom {
+  background-color: #ff8d1b;
+  padding: 10px 0;
+  color: white;
+}
+
+#header__pc .header__bottom ul {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#header__pc .header__bottom ul li {
+  list-style: none;
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+#header__pc .header__bottom ul li a {
+  font-weight: 500;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#header__pc .header__bottom ul li a:hover {
+  color: black;
+}
+
+#header__pc .header__bottom ul li a.active {
+  color: black;
+}
+
+#header__mobile .header__mobile__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#header__mobile .header__mobile__content .header__mobile__left img {
+  width: 50%;
+  height: auto;
+}
+
+#header__mobile .header__mobile__content .header__mobile__left a {
+  margin-left: 10px;
+  color: black;
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#header__mobile .header__mobile__content .header__mobile__left a:hover {
+  color: #ff8d1b;
+}
+
+#header__mobile .header__mobile__content .header__mobile__right a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#header__mobile .header__mobile__content .header__mobile__right a i {
+  display: block;
+  margin-top: 20px;
+  font-size: 2rem;
+}
+
+#header__mobile .header__mobile__content .header__mobile__right .dropdown-menu {
+  width: 100%;
+  text-align: right;
+}
+
+#header__mobile .header__mobile__content .header__mobile__right .dropdown-menu .dropdown-item {
+  margin-top: 10px;
+}
+
+#header__mobile .header__mobile__content .header__mobile__right .dropdown-menu .dropdown-item input {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+#header__mobile .header__mobile__content .header__mobile__right .dropdown-menu .dropdown-item input:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#header__mobile .header__mobile__content .header__mobile__right .dropdown-menu .dropdown-item i {
+  color: #ff8d1b;
+  padding: 11px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#header__mobile .header__mobile__content .header__mobile__right .dropdown-menu .dropdown-item i:hover {
+  color: white;
+  background: #ff8d1b;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */
