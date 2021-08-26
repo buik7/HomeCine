@@ -1,0 +1,33 @@
+#buy__tickets {
+  width: 50%;
+
+  @media screen and (max-width: 700px) {
+    width: 90%;
+  }
+
+  margin: 80px auto;
+  background-color: #ffa954;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  & > h3 {
+    margin-bottom: 40px;
+    color: #075467;
+  }
+
+  .form-group {
+    width: 50%;
+    margin: 20px auto;
+  }
+
+  .buy__tickets__btn button {
+    background: #48b5ce;
+    color: white;
+    font-weight: 600;
+    transition: all 0.5s;
+
+    &:hover {
+      background: #296876;
+    }
+  }
+}

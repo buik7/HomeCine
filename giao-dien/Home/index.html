@@ -388,6 +388,123 @@
       </div>
     </section>
 
+    <section id="buy__tickets">
+      <h3 class="text-center">MUA VÉ NHANH</h3>
+      <form class="container">
+        <div class="form-group">
+          <select class="form-control">
+            <option value="-1">Chọn phim</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control">
+            <option value="-1">Chọn ngày</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control">
+            <option value="-1">Chọn rạp</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control">
+            <option value="-1">Chọn suất</option>
+          </select>
+        </div>
+      </form>
+      <div class="text-center buy__tickets__btn">
+        <button class="btn">MUA VÉ</button>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-12">
+            <div class="footer__content">
+              <h2>Về HomeCine</h2>
+              <p>
+                HomeCine là một trong những công ty tư nhân đầu tiên về điện ảnh
+                được thành lập từ năm 2003, đã khẳng định thương hiệu là 1 trong
+                10 địa điểm vui chơi giải trí được yêu thích nhất.
+              </p>
+              <br />
+              <ul>
+                <li>
+                  <a href="#facebook"><i class="fab fa-facebook-square"></i></a>
+                </li>
+                <li>
+                  <a href="#google"><i class="fab fa-google-plus-g"></i></a>
+                </li>
+                <li>
+                  <a href="#twitter"><i class="fab fa-twitter"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-12">
+            <div class="footer__content footer__working">
+              <h2>Giờ mở cửa</h2>
+              <div class="textbox">
+                <p class="alignleft">Thứ hai</p>
+                <p class="alignright">9:30-22:30</p>
+              </div>
+              <div style="clear: both"></div>
+              <div class="textbox">
+                <p class="alignleft">Thứ ba</p>
+                <p class="alignright">9:30-22:30</p>
+              </div>
+              <div style="clear: both"></div>
+              <div class="textbox">
+                <p class="alignleft">Thứ tư</p>
+                <p class="alignright">9:30-22:30</p>
+              </div>
+              <div style="clear: both"></div>
+              <div class="textbox">
+                <p class="alignleft">Thứ năm</p>
+                <p class="alignright">9:30-22:30</p>
+              </div>
+              <div style="clear: both"></div>
+              <div class="textbox">
+                <p class="alignleft">Thứ sáu</p>
+                <p class="alignright">9:30-22:30</p>
+              </div>
+              <div style="clear: both"></div>
+              <div class="textbox">
+                <p class="alignleft">Thứ bảy</p>
+                <p class="alignright">8:30-23:30</p>
+              </div>
+              <div style="clear: both"></div>
+              <div class="textbox">
+                <p class="alignleft">Chủ nhật</p>
+                <p class="alignright">8:30-23:30</p>
+              </div>
+              <div style="clear: both"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-12">
+            <div class="footer__content">
+              <h2>Đăng ký ưu đãi</h2>
+              <br />
+              <input type="email" placeholder="abc@example.com" />
+              <br />
+              <button type="button" class="btn btn-custom">Đăng ký</button>
+              <p>
+                Hiện nay, HomeCine đang ngày càng phát triển hơn nữa với các
+                chương trình đặc sắc, các khuyến mãi hấp dẫn, đem đến cho khán
+                giả những bộ phim bom tấn của thế giới và Việt Nam nhanh chóng
+                và sớm nhất
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__author">
+        <p>&copy; 2021 HomeCine.</p>
+      </div>
+    </footer>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -451,6 +568,13 @@
             // instead of a settings object
           ],
         });
+      });
+    </script>
+
+    <script>
+      $(".datepicker").datepicker();
+      $(".datepicker").datepicker({
+        inline: true,
       });
     </script>
   </body>
