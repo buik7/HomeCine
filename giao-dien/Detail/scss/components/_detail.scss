@@ -1,0 +1,52 @@
+#detail {
+  margin-top: 40px;
+
+  .detail__left {
+    padding: 20px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .detail__right {
+    padding-top: 20px;
+
+    .detail__right__title {
+      font-size: 2.5rem;
+    }
+
+    .detail__right__rating {
+      margin-top: 20px;
+      font-size: 1.25rem;
+      i {
+        color: yellow;
+      }
+    }
+
+    .detail__right__dates {
+      font-size: 1.25rem;
+    }
+
+    .detail__right__description {
+      .description__title {
+        font-size: 1.25rem;
+      }
+    }
+
+    .detail__right__button {
+      .btn__trailer,
+      .btn__buy {
+        background: #ff8d1b;
+        color: white;
+        transition: all 0.5s;
+        margin-right: 20px;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
