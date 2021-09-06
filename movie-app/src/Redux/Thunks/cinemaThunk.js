@@ -1,4 +1,7 @@
-import { getCinemaSystemService } from "../../Services/cinemaService";
+import {
+  getCinemaService,
+  getCinemaSystemService,
+} from "../../Services/cinemaService";
 import { STATUS_CODE } from "../../Util/constants/systemConstant";
 import { actionTypes } from "../Constants/actionTypes";
 

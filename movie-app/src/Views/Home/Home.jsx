@@ -4,12 +4,14 @@ import HomeDatVe from "../../Components/Home/HomeDatVe";
 import HomeFilmList from "../../Components/Home/HomeFilmList";
 import { useDispatch } from "react-redux";
 import { getFilmListThunk } from "../../Redux/Thunks/filmThunk";
+import { getCinemaSystemThunk } from "../../Redux/Thunks/cinemaThunk";
 
 const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getFilmListThunk);
+    dispatch(getCinemaSystemThunk);
   }, [dispatch]);
 
   return (

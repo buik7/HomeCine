@@ -67,7 +67,13 @@ const HomeFilmList = (props) => {
                         >
                           <i className="fas fa-play" />
                         </a>
-                        <h2>ĐẶT VÉ</h2>
+                        <h2
+                          onClick={() => {
+                            props.history.push(`/detail/${film.maPhim}`);
+                          }}
+                        >
+                          ĐẶT VÉ
+                        </h2>
                         <p>Khởi chiếu: {printDate(film.ngayKhoiChieu)}</p>
                       </div>
                     </div>
@@ -100,7 +106,13 @@ const HomeFilmList = (props) => {
                         >
                           <i className="fas fa-play" />
                         </a>
-                        <h2>ĐẶT VÉ</h2>
+                        <h2
+                          onClick={() => {
+                            props.history.push(`/detail/${film.maPhim}`);
+                          }}
+                        >
+                          ĐẶT VÉ
+                        </h2>
                         <p>Khởi chiếu: {printDate(film.ngayKhoiChieu)}</p>
                       </div>
                     </div>
@@ -133,7 +145,13 @@ const HomeFilmList = (props) => {
                         >
                           <i className="fas fa-play" />
                         </a>
-                        <h2>ĐẶT VÉ</h2>
+                        <h2
+                          onClick={() => {
+                            props.history.push(`/detail/${film.maPhim}`);
+                          }}
+                        >
+                          ĐẶT VÉ
+                        </h2>
                         <p>Khởi chiếu: {printDate(film.ngayKhoiChieu)}</p>
                       </div>
                     </div>
