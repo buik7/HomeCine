@@ -23,3 +23,10 @@ export const getScheduleByCinemaService = (cinemaId) => {
     url: `${DOMAIN}/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${cinemaId}&maNhom=GP01`,
   });
 };
+
+export const getFilmScheduleService = (filmId) => {
+  return request({
+    method: "GET",
+    url: `${DOMAIN}/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${filmId}`,
+  });
+};

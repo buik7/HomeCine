@@ -3,6 +3,7 @@ import { actionTypes } from "../Constants/actionTypes";
 const initialState = {
   filmList: [],
   filmDetail: {},
+  filmSchedule: [],
 };
 
 const filmReducer = (state = initialState, { type, payload }) => {
@@ -13,6 +14,10 @@ const filmReducer = (state = initialState, { type, payload }) => {
 
     case actionTypes.SAVE_FILM_DETAIL:
       state.filmDetail = payload;
+      return { ...state };
+
+    case actionTypes.SAVE_FILM_SCHEDULE:
+      state.filmSchedule = payload;
       return { ...state };
 
     default:

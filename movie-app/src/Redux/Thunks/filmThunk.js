@@ -1,3 +1,4 @@
+import { getFilmScheduleService } from "../../Services/cinemaService";
 import {
   getFilmDetailService,
   getFilmListService,
@@ -27,6 +28,23 @@ export const getFilmDetailThunk = (filmId) => {
         if (status === STATUS_CODE.SUCCESS) {
           dispatch({
             type: actionTypes.SAVE_FILM_DETAIL,
+            payload: data.content,
+          });
+        }
+      });
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
+};
+
+export const getFilmScheduleThunk = (filmId) => {
+  return (dispatch) => {
+    try {
+      getFilmScheduleService(filmId).then(({ data, status }) => {
+        if (status === STATUS_CODE.SUCCESS) {
+          dispatch({
+            type: actionTypes.SAVE_FILM_SCHEDULE,
             payload: data.content,
           });
         }

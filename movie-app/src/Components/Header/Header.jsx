@@ -6,10 +6,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { actionTypes } from "../../Redux/Constants/actionTypes";
 import { localStorageKeys } from "../../Util/constants/systemConstant";
 
-const Header = () => {
+const Header = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userReducer.userLogin);
+  const [searchKeyword, setSearchKeyWord] = useState("");
 
   useEffect(() => {
     window.onresize = () => {
@@ -46,8 +47,14 @@ const Header = () => {
                   type="text"
                   className="form-control"
                   placeholder="Tìm kiếm phim, diễn viên, ..."
+                  onChange={(e) => setSearchKeyWord(e.target.value)}
                 />
-                <i className="fas fa-search" />
+                <i
+                  className="fas fa-search"
+                  onClick={() => {
+                    props.history.push(`/search/${searchKeyword}`);
+                  }}
+                />
               </div>
             </div>
             {userLogin ? (

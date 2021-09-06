@@ -7,6 +7,7 @@ import Film from "./Views/Film/Film";
 import Event from "./Views/Event/Event";
 import Contact from "./Views/Contact/Contact";
 import Profile from "./Views/Profile/Profile";
+import Search from "./Views/Search/Search";
 import { useDispatch } from "react-redux";
 import { getUserLoginThunk } from "./Redux/Thunks/userThunk";
 
@@ -26,6 +27,7 @@ function App() {
           <HomeTemplate path="/event" Component={Event} />
           <HomeTemplate path="/contact" Component={Contact} />
           <HomeTemplate path="/profile" Component={Profile} />
+          <HomeTemplate path="/search/:keyword" Component={Search} />
           <HomeTemplate path="/" Component={Home} />
 
           {/* <Route path="/" component={Home}></Route> */}
