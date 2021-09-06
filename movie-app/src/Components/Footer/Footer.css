@@ -1,0 +1,101 @@
+footer {
+  background-color: black;
+  padding: 30px;
+  margin-top: 50px;
+}
+
+footer .footer__content {
+  margin: 10px;
+}
+
+footer .footer__content h4 {
+  color: #ff8d1b;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+footer .footer__content p {
+  line-height: 2rem;
+  font-size: 1rem;
+  color: white;
+  margin: 10px 0;
+  letter-spacing: 1px;
+}
+
+footer .footer__content ul li {
+  list-style: none;
+  display: inline;
+  margin: 0px 10px;
+}
+
+footer .footer__content ul li a {
+  color: white;
+}
+
+footer .footer__content ul li a i {
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  text-align: center;
+  line-height: 30px;
+  font-size: 1.2rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+footer .footer__content ul li a:hover i {
+  color: #ff8d1b;
+}
+
+footer .footer__content input[type="email"] {
+  color: #000;
+  padding: 0.7em;
+  border: 1px solid #000;
+  font-size: 13px;
+  width: 100%;
+  background: white;
+  outline: none;
+  letter-spacing: 1px;
+  width: 75%;
+}
+
+footer .footer__content button {
+  width: 40%;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 10px 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+footer .footer__content button:hover {
+  background-color: #fff;
+}
+
+footer .footer__author p {
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-top: 20px;
+}
+
+.alignleft {
+  float: left;
+}
+
+.alignright {
+  float: right;
+}
+
+footer .footer__content .textbox {
+  height: 3.5rem;
+  border-bottom: 1px solid white;
+}
+
+.btn-custom {
+  background-color: #ff8d1b;
+}
+/*# sourceMappingURL=style.css.map */
