@@ -5,7 +5,7 @@ const initialState = {
   cinemaList: [],
 };
 
-export default (state = initialState, { type, payload }) => {
+const cinemaReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case actionTypes.SAVE_CINEMA_SYSTEM_LIST:
       state.cinemaSystemList = payload;
@@ -19,3 +19,5 @@ export default (state = initialState, { type, payload }) => {
       return state;
   }
 };
+
+export default cinemaReducer;

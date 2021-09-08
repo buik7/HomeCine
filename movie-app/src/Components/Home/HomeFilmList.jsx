@@ -52,7 +52,7 @@ const HomeFilmList = (props) => {
             {filmList
               .filter((film) => film.dangChieu)
               .map((film, index) => {
-                if (index > 7) return;
+                if (index > 7) return <div key={index}></div>;
                 return (
                   <div className="col-sm-3 mb-4" key={film.maPhim}>
                     <div
@@ -91,7 +91,7 @@ const HomeFilmList = (props) => {
             {filmList
               .filter((film) => film.sapChieu)
               .map((film, index) => {
-                if (index > 7) return;
+                if (index > 7) return <div key={index}></div>;
                 return (
                   <div className="col-sm-3 mb-4" key={film.maPhim}>
                     <div
@@ -130,7 +130,7 @@ const HomeFilmList = (props) => {
             {filmList
               .filter((film) => film.hot)
               .map((film, index) => {
-                if (index > 7) return;
+                if (index > 7) return <div key={index}></div>;
                 return (
                   <div className="col-sm-3 mb-4" key={film.maPhim}>
                     <div

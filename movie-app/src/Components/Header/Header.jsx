@@ -73,7 +73,7 @@ const Header = (props) => {
                   className="dropdown-menu"
                   aria-labelledby="dropdownMenuLink"
                 >
-                  <NavLink className="dropdown-item" to="/profile">
+                  <NavLink className="dropdown-item" id="linking" to="/profile">
                     Thông tin tài khoản
                   </NavLink>
                   <a className="dropdown-item" href="#" onClick={logOut}>

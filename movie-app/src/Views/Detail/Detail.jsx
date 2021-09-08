@@ -198,7 +198,6 @@ const Detail = (props) => {
                           weekday.active ? "active" : ""
                         }`}
                         // data-toggle="tab"
-                        // href={`#${weekday.id}`}
                       >
                         {weekday.name} <br />
                         {`${weekday.date.date()}/${weekday.date.month() + 1}`}
