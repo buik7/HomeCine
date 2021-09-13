@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as dayjs from "dayjs";
 import { useFormik } from "formik";
 import { getCinemaListThunk } from "../../Redux/Thunks/cinemaThunk";
+import { useTranslation } from "react-i18next";
 
 const renderDates = () => {
   const now = dayjs();
@@ -28,6 +29,7 @@ const HomeDatVe = () => {
   const { cinemaSystemList, cinemaList } = useSelector(
     (state) => state.cinemaReducer
   );
+  const { t } = useTranslation();
 
   const formik = useFormik({
     initialValues: {
@@ -42,7 +44,7 @@ const HomeDatVe = () => {
   return (
     <div>
       <section id="buy__tickets">
-        <h3 className="text-center">MUA VÉ NHANH</h3>
+        <h3 className="text-center">{t("book_ticket_now")}</h3>
         <form className="container">
           <div className="form-group">
             <select
@@ -52,7 +54,7 @@ const HomeDatVe = () => {
               }}
             >
               <option disabled selected value="disabled">
-                Chọn phim
+                {t("choose_film")}
               </option>
               {filmList.map((film) => {
                 return (
@@ -71,7 +73,7 @@ const HomeDatVe = () => {
               }}
             >
               <option disabled selected value="disabled">
-                Chọn ngày
+                {t("choose_date")}
               </option>
               {renderDates()}
             </select>
@@ -84,7 +86,7 @@ const HomeDatVe = () => {
               }}
             >
               <option disabled selected value="disabled">
-                Chọn hệ thống rạp
+                {t("choose_cinema_system")}
               </option>
               {cinemaSystemList.map((cinemaSystem) => {
                 return (
@@ -106,7 +108,7 @@ const HomeDatVe = () => {
               }}
             >
               <option disabled selected value="disabled">
-                Chọn rạp
+                {t("choose_cinema")}
               </option>
               {cinemaList.map((cinema) => {
                 return (
@@ -120,7 +122,7 @@ const HomeDatVe = () => {
         </form>
         <div className="text-center buy__tickets__btn">
           <button className="btn" onClick={handleSubmit}>
-            MUA VÉ
+            {t("book_tickets")}
           </button>
         </div>
       </section>

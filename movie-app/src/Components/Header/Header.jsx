@@ -5,12 +5,16 @@ import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { actionTypes } from "../../Redux/Constants/actionTypes";
 import { localStorageKeys } from "../../Util/constants/systemConstant";
+import { useTranslation } from "react-i18next";
 
 const Header = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userReducer.userLogin);
   const [searchKeyword, setSearchKeyWord] = useState("");
+
+  const lang = useSelector((state) => state.languageReducer);
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     window.onresize = () => {
@@ -46,7 +50,7 @@ const Header = (props) => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Tìm kiếm phim, diễn viên, ..."
+                  placeholder={t("search")}
                   onChange={(e) => setSearchKeyWord(e.target.value)}
                 />
                 <i
@@ -56,6 +60,33 @@ const Header = (props) => {
                   }}
                 />
               </div>
+            </div>
+            <div className="mr-3 header__lang">
+              <button
+                className={`btn ${lang === "vi" ? "active" : ""}`}
+                onClick={() => {
+                  dispatch({
+                    type: actionTypes.CHANGE_LANGUAGE,
+                    payload: "vi",
+                  });
+                  i18n.changeLanguage("vi");
+                }}
+              >
+                VI
+              </button>
+              |
+              <button
+                className={`btn ${lang === "en" ? "active" : ""}`}
+                onClick={() => {
+                  dispatch({
+                    type: actionTypes.CHANGE_LANGUAGE,
+                    payload: "en",
+                  });
+                  i18n.changeLanguage("en");
+                }}
+              >
+                EN
+              </button>
             </div>
             {userLogin ? (
               <div className="header__user">
@@ -74,17 +105,17 @@ const Header = (props) => {
                   aria-labelledby="dropdownMenuLink"
                 >
                   <NavLink className="dropdown-item" id="linking" to="/profile">
-                    Thông tin tài khoản
+                    {t("myaccount")}
                   </NavLink>
                   <a className="dropdown-item" href="#" onClick={logOut}>
-                    Đăng xuất
+                    {t("logout")}
                   </a>
                 </div>
               </div>
             ) : (
               <div className="header__login">
                 <a href="#">
-                  <i className="far fa-user mr-1" /> Đăng nhập
+                  <i className="far fa-user mr-1" /> {t("signin")}
                 </a>
               </div>
             )}
@@ -98,7 +129,7 @@ const Header = (props) => {
                   activeStyle={{ color: "black" }}
                   style={{ color: "white", textDecoration: "none" }}
                 >
-                  TRANG CHỦ
+                  {t("home")}
                 </NavLink>
               </li>
               <li>|</li>
@@ -108,7 +139,7 @@ const Header = (props) => {
                   activeStyle={{ color: "black" }}
                   style={{ color: "white", textDecoration: "none" }}
                 >
-                  PHIM
+                  {t("film")}
                 </NavLink>
               </li>
               <li>|</li>
@@ -118,7 +149,7 @@ const Header = (props) => {
                   activeStyle={{ color: "black" }}
                   style={{ color: "white", textDecoration: "none" }}
                 >
-                  SỰ KIỆN
+                  {t("event")}
                 </NavLink>
               </li>
               <li>|</li>
@@ -128,7 +159,7 @@ const Header = (props) => {
                   activeStyle={{ color: "black" }}
                   style={{ color: "white", textDecoration: "none" }}
                 >
-                  HỖ TRỢ
+                  {t("contact")}
                 </NavLink>
               </li>
               <li>|</li>
@@ -138,7 +169,7 @@ const Header = (props) => {
                   activeStyle={{ color: "black" }}
                   style={{ color: "white", textDecoration: "none" }}
                 >
-                  THÔNG TIN TÀI KHOẢN
+                  {t("profile")}
                 </NavLink>
               </li>
             </ul>

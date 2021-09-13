@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import { getFilmListThunk } from "../../Redux/Thunks/filmThunk";
 
@@ -30,6 +31,7 @@ const Film = (props) => {
   }, [dispatch]);
 
   const filmList = useSelector((state) => state.filmReducer.filmList);
+  const { t } = useTranslation();
 
   return (
     <section id="new-in" className="container">
@@ -37,17 +39,17 @@ const Film = (props) => {
         <ul className="nav nav-tabs">
           <li className="nav-item">
             <a className="nav-link active" data-toggle="tab" href="#dangchieu">
-              PHIM ĐANG CHIẾU
+              {t("now_showing")}
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" data-toggle="tab" href="#sapchieu">
-              PHIM SẮP CHIẾU
+              {t("coming_soon")}
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" data-toggle="tab" href="#hot">
-              PHIM HOT
+              {t("hot")}
             </a>
           </li>
         </ul>
@@ -77,9 +79,11 @@ const Film = (props) => {
                             props.history.push(`/detail/${film.maPhim}`);
                           }}
                         >
-                          ĐẶT VÉ
+                          {t("book_tickets")}
                         </h2>
-                        <p>Khởi chiếu: {printDate(film.ngayKhoiChieu)}</p>
+                        <p>
+                          {t("in_cinema")}: {printDate(film.ngayKhoiChieu)}
+                        </p>
                       </div>
                     </div>
                     <div className="text-center">
@@ -115,9 +119,11 @@ const Film = (props) => {
                             props.history.push(`/detail/${film.maPhim}`);
                           }}
                         >
-                          ĐẶT VÉ
+                          {t("book_tickets")}
                         </h2>
-                        <p>Khởi chiếu: {printDate(film.ngayKhoiChieu)}</p>
+                        <p>
+                          {t("in_cinema")}: {printDate(film.ngayKhoiChieu)}
+                        </p>
                       </div>
                     </div>
                     <div className="text-center">
@@ -153,9 +159,11 @@ const Film = (props) => {
                             props.history.push(`/detail/${film.maPhim}`);
                           }}
                         >
-                          ĐẶT VÉ
+                          {t("book_tickets")}
                         </h2>
-                        <p>Khởi chiếu: {printDate(film.ngayKhoiChieu)}</p>
+                        <p>
+                          {t("in_cinema")}: {printDate(film.ngayKhoiChieu)}
+                        </p>
                       </div>
                     </div>
                     <div className="text-center">

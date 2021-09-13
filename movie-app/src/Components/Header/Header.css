@@ -107,6 +107,10 @@
   color: black;
 }
 
+#header__pc .header__lang button.active {
+  color: #ff8d1b;
+}
+
 #header__mobile .header__mobile__content {
   display: -webkit-box;
   display: -ms-flexbox;

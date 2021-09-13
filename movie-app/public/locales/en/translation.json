@@ -1,0 +1,48 @@
+{
+    "signin" : "Sign In",
+    "signup": "Sign Up",
+    "logout": "Log Out",
+    "myaccount": "My account",
+    "search": "Search for films, actors, ...",
+
+    "home": "HOME",
+    "film": "FILM",
+    "event": "EVENT",
+    "contact": "CONTACT",
+    "profile": "PROFILE",
+
+    "now_showing": "NOW SHOWING",
+    "coming_soon": "COMING SOON",
+    "hot": "HOT",
+    "book_tickets": "BOOK TICKETS",
+    "in_cinema": "In cinema",
+    "view_more": "VIEW MORE",
+    "book_ticket_now": "BOOK YOUR TICKET NOW",
+    "choose_cinema_system": "Choose cinema system",
+    "choose_cinema": "Choose cinema",
+    "choose_date": "Choose date",
+    "choose_film": "Choose film",
+    "about_homecine": "About Homecine",
+    "homecine_description": "HomeCine is one of the first privately owned movie companies established in 2003, having confirmed the brand as one of the top 10 most popular entertainment venues.",
+    "opening_hours": "Opening hours",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "subscribe": "Subscribe",
+    "dang_ky": "Subscribe",
+    "homecine_description_2": "Currently, HomeCine is developing more and more with special programs, attractive promotions, bringing to the audience the blockbuster movies of the world and Vietnam quickly and as soon as possible.",
+    "description": "Description",
+    "watch_trailer": "WATCH TRAILER",
+    "time": "Time",
+    "minutes": "minutes"
+
+
+
+
+
+
+}

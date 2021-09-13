@@ -6,6 +6,9 @@ import { Provider } from "react-redux";
 import store from "./Redux/configStore";
 import App from "./App";
 
+// Import multiple languages
+import "./i18n";
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

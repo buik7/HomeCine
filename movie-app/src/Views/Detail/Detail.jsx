@@ -7,9 +7,10 @@ import {
 } from "../../Redux/Thunks/filmThunk";
 import "./Detail.css";
 import * as dayjs from "dayjs";
+import { useTranslation } from "react-i18next";
 
 const printDate = (dateString) => {
-  if (!dateString) return "Chưa có";
+  if (!dateString) return "TBD";
   const [year, month, day] = dateString.split("T")[0].split("-");
   return `${day}/${month}/${year}`;
 };
@@ -33,43 +34,6 @@ const mapWeekDayToId = (weekday) => {
   }
 };
 
-const mapWeekDayToName = (weekday) => {
-  switch (weekday) {
-    case 0:
-      return "CHỦ NHẬT";
-    case 1:
-      return "THỨ HAI";
-    case 2:
-      return "THỨ BA";
-    case 3:
-      return "THỨ TƯ";
-    case 4:
-      return "THỨ NĂM";
-    case 5:
-      return "THỨ SÁU";
-    default:
-      return "THỨ BẢY";
-  }
-};
-
-const getToday = () => {
-  const dates = [];
-  const today = dayjs();
-
-  for (let i = 0; i < 7; i++) {
-    let newDay = today.add(i, "day");
-    dates.push({
-      id: mapWeekDayToId(newDay.day()),
-      name: mapWeekDayToName(newDay.day()),
-      active: false,
-      date: newDay,
-    });
-  }
-
-  dates[0].active = true;
-  return dates;
-};
-
 const getChosenDate = (list) => {
   return list.find((item) => item.active);
 };
@@ -83,6 +47,7 @@ const formatNumber = (number) => {
 
 const Detail = (props) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(getFilmDetailThunk(props.match.params.id));
@@ -96,6 +61,43 @@ const Detail = (props) => {
   const cinemaSystemList = useSelector(
     (state) => state.cinemaReducer.cinemaSystemList
   );
+
+  const mapWeekDayToName = (weekday) => {
+    switch (weekday) {
+      case 0:
+        return t("sunday").toUpperCase();
+      case 1:
+        return t("monday").toUpperCase();
+      case 2:
+        return t("tuesday").toUpperCase();
+      case 3:
+        return t("wednesday").toUpperCase();
+      case 4:
+        return t("thursday").toUpperCase();
+      case 5:
+        return t("friday").toUpperCase();
+      default:
+        return t("saturday").toUpperCase();
+    }
+  };
+
+  const getToday = () => {
+    const dates = [];
+    const today = dayjs();
+
+    for (let i = 0; i < 7; i++) {
+      let newDay = today.add(i, "day");
+      dates.push({
+        id: mapWeekDayToId(newDay.day()),
+        name: mapWeekDayToName(newDay.day()),
+        active: false,
+        date: newDay,
+      });
+    }
+
+    dates[0].active = true;
+    return dates;
+  };
 
   // Hệ thống rạp
   const [system, setSystem] = useState("");
@@ -121,24 +123,24 @@ const Detail = (props) => {
                 <i className="fas fa-star"></i> <b>{filmDetail.danhGia}</b> / 10
               </p>
               <p className="detail__right__dates">
-                Khởi chiếu:{" "}
+                {t("in_cinema")}:{" "}
                 <b>
                   {filmDetail.ngayKhoiChieu &&
                     printDate(filmDetail.ngayKhoiChieu)}
                 </b>
               </p>
               <div className="detail__right__description">
-                <p className="description__title">Nội dung phim:</p>
+                <p className="description__title">{t("description")}</p>
                 <p>{filmDetail.moTa}</p>
               </div>
 
               <div className="detail__right__button">
                 <button className="btn btn__trailer">
                   <a href={filmDetail.trailer} target="_blank" rel="noreferrer">
-                    XEM TRAILER
+                    {t("watch_trailer")}
                   </a>
                 </button>
-                <button className="btn btn__buy">MUA VÉ</button>
+                <button className="btn btn__buy">{t("book_tickets")}</button>
               </div>
             </div>
           </div>
@@ -233,7 +235,8 @@ const Detail = (props) => {
                               <br />
                               <h5 className="mt-2">
                                 <div className="text__left">
-                                  <i className="far fa-clock" /> GIỜ CHIẾU
+                                  <i className="far fa-clock" />
+                                  {t("time").toUpperCase()} &nbsp;
                                   {cumRap.lichChieuPhim
                                     .filter((lichChieu) => {
                                       const today = getChosenDate(date).date;
@@ -262,7 +265,7 @@ const Detail = (props) => {
                                 </div>
                                 <div className="text__right">
                                   <p>
-                                    120 PHÚT
+                                    120 {t("minutes").toUpperCase()}
                                     <span>PG</span>
                                   </p>
                                 </div>
