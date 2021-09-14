@@ -4,6 +4,16 @@ import * as dayjs from "dayjs";
 import { useFormik } from "formik";
 import { getCinemaListThunk } from "../../Redux/Thunks/cinemaThunk";
 import { useTranslation } from "react-i18next";
+import { getFilmScheduleThunk } from "../../Redux/Thunks/filmThunk";
+import { actionTypes } from "../../Redux/Constants/actionTypes";
+import { localStorageKeys } from "../../Util/constants/systemConstant";
+
+const formatNumber = (number) => {
+  if (number < 10) {
+    return `0${number}`;
+  }
+  return number;
+};
 
 const renderDates = () => {
   const now = dayjs();
@@ -23,9 +33,9 @@ const renderDates = () => {
   return rows;
 };
 
-const HomeDatVe = () => {
+const HomeDatVe = (props) => {
   const dispatch = useDispatch();
-  const filmList = useSelector((state) => state.filmReducer.filmList);
+  const { filmList, filmSchedule } = useSelector((state) => state.filmReducer);
   const { cinemaSystemList, cinemaList } = useSelector(
     (state) => state.cinemaReducer
   );
@@ -33,13 +43,78 @@ const HomeDatVe = () => {
 
   const formik = useFormik({
     initialValues: {
+      maHeThongRap: "disabled",
       maPhim: "disabled",
-      ngayChieuGioChieu: "disabled",
+      ngayChieu: "disabled",
       maCumRap: "disabled",
+      gioChieu: "disabled",
     },
   });
 
-  const handleSubmit = useCallback(() => {}, [formik]);
+  const fetchSchedule = useCallback(() => {
+    const { maHeThongRap, maPhim, ngayChieu, maCumRap, gioChieu } =
+      formik.values;
+    if (
+      maPhim === "disabled" ||
+      ngayChieu === "disabled" ||
+      maCumRap === "disabled" ||
+      maHeThongRap === "disabled"
+    ) {
+      return [];
+    }
+
+    return filmSchedule.heThongRapChieu
+      ?.filter((cinemaSystem) => cinemaSystem.maHeThongRap === maHeThongRap)[0]
+      .cumRapChieu?.map((cumRap) => {
+        if (cumRap.maCumRap === maCumRap) {
+          return cumRap?.lichChieuPhim
+            .filter((lichChieu) => {
+              const today = dayjs();
+              const lichChieuDate = dayjs(lichChieu.ngayChieuGioChieu);
+
+              return (
+                today.date() === lichChieuDate.date() &&
+                today.month() === lichChieuDate.month()
+              );
+            })
+            .map((item, index) => {
+              const schedule = dayjs(item.ngayChieuGioChieu);
+              return (
+                <option value={JSON.stringify(item)} key={index}>
+                  {`
+                  ${formatNumber(schedule.hour())}:
+                  ${formatNumber(schedule.minute())}
+                `}
+                </option>
+              );
+            });
+        }
+      });
+  }, [formik, filmSchedule]);
+
+  const handleSubmit = useCallback(() => {
+    const { maHeThongRap, maPhim, ngayChieu, maCumRap, gioChieu } =
+      formik.values;
+    if (
+      maPhim === "disabled" ||
+      ngayChieu === "disabled" ||
+      maCumRap === "disabled" ||
+      maHeThongRap === "disabled" ||
+      gioChieu === "disabled"
+    ) {
+      alert(t("alert_book_ticket"));
+      return;
+    }
+    dispatch({
+      type: actionTypes.BOOK_TICKET,
+      payload: {
+        lichChieu: gioChieu,
+        maCumRap: maCumRap,
+      },
+    });
+    localStorage.setItem(localStorageKeys.TICKET_DETAIL, gioChieu);
+    props.history.push("/datve");
+  }, [formik]);
 
   return (
     <div>
@@ -50,6 +125,7 @@ const HomeDatVe = () => {
             <select
               className="form-control"
               onChange={(e) => {
+                dispatch(getFilmScheduleThunk(e.target.value));
                 formik.setFieldValue("maPhim", e.target.value);
               }}
             >
@@ -69,7 +145,7 @@ const HomeDatVe = () => {
             <select
               className="form-control"
               onChange={(e) => {
-                formik.setFieldValue("ngayChieuGioChieu", e.target.value);
+                formik.setFieldValue("ngayChieu", e.target.value);
               }}
             >
               <option disabled selected value="disabled">
@@ -82,6 +158,7 @@ const HomeDatVe = () => {
             <select
               className="form-control"
               onChange={(e) => {
+                formik.setFieldValue("maHeThongRap", e.target.value);
                 dispatch(getCinemaListThunk(e.target.value));
               }}
             >
@@ -117,6 +194,19 @@ const HomeDatVe = () => {
                   </option>
                 );
               })}
+            </select>
+          </div>
+          <div className="form-group">
+            <select
+              className="form-control"
+              onChange={(e) => {
+                formik.setFieldValue("gioChieu", e.target.value);
+              }}
+            >
+              <option disabled selected value="disabled">
+                {t("choose_time")}
+              </option>
+              {fetchSchedule()}
             </select>
           </div>
         </form>

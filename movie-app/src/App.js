@@ -8,6 +8,7 @@ import Event from "./Views/Event/Event";
 import Contact from "./Views/Contact/Contact";
 import Profile from "./Views/Profile/Profile";
 import Search from "./Views/Search/Search";
+import DatVe from "./Views/DatVe/DatVe";
 import { useDispatch } from "react-redux";
 import { getUserLoginThunk } from "./Redux/Thunks/userThunk";
 
@@ -28,6 +29,7 @@ function App() {
           <HomeTemplate path="/contact" Component={Contact} />
           <HomeTemplate path="/profile" Component={Profile} />
           <HomeTemplate path="/search/:keyword" Component={Search} />
+          <HomeTemplate path="/datve" Component={DatVe} />
           <HomeTemplate path="/" Component={Home} />
 
           {/* <Route path="/" component={Home}></Route> */}

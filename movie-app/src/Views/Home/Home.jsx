@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { getFilmListThunk } from "../../Redux/Thunks/filmThunk";
 import { getCinemaSystemThunk } from "../../Redux/Thunks/cinemaThunk";
 
-const Home = () => {
+const Home = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const Home = () => {
         </div>
       </div>
       <HomeFilmList />
-      <HomeDatVe />
+      <HomeDatVe history={props.history} />
     </div>
   );
 };

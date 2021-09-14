@@ -1,6 +1,7 @@
 export const DOMAIN = "https://movienew.cybersoft.edu.vn/api";
 export const localStorageKeys = {
   ACCESS_TOKEN: "ACCESS_TOKEN",
+  TICKET_DETAIL: "TICKET_DETAIL",
 };
 
 export const STATUS_CODE = {

@@ -8,6 +8,8 @@ import {
 import "./Detail.css";
 import * as dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
+import { actionTypes } from "../../Redux/Constants/actionTypes";
+import { localStorageKeys } from "../../Util/constants/systemConstant";
 
 const printDate = (dateString) => {
   if (!dateString) return "TBD";
@@ -215,7 +217,7 @@ const Detail = (props) => {
                       ?.filter(
                         (cinemaSystem) => cinemaSystem.maHeThongRap === system
                       )[0]
-                      .cumRapChieu?.map((cumRap) => {
+                      ?.cumRapChieu?.map((cumRap) => {
                         return (
                           <div className="row">
                             <div className="col-sm-2 time__item__left">
@@ -251,7 +253,23 @@ const Detail = (props) => {
                                     })
                                     .map((item) => {
                                       return (
-                                        <span className="time-yes">
+                                        <span
+                                          className="time-yes"
+                                          onClick={() => {
+                                            dispatch({
+                                              type: actionTypes.BOOK_TICKET,
+                                              payload: {
+                                                lichChieu: JSON.stringify(item),
+                                                maCumRap: cumRap.maCumRap,
+                                              },
+                                            });
+                                            localStorage.setItem(
+                                              localStorageKeys.TICKET_DETAIL,
+                                              JSON.stringify(item)
+                                            );
+                                            props.history.push("/datve");
+                                          }}
+                                        >
                                           {`${formatNumber(
                                             dayjs(item.ngayChieuGioChieu).hour()
                                           )}:${formatNumber(

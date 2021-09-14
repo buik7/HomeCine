@@ -22,6 +22,8 @@
     "choose_cinema": "Choose cinema",
     "choose_date": "Choose date",
     "choose_film": "Choose film",
+    "choose_time": "Choose time",
+    "alert_book_ticket": "Please choose a film and a valid schedule",
     "about_homecine": "About Homecine",
     "homecine_description": "HomeCine is one of the first privately owned movie companies established in 2003, having confirmed the brand as one of the top 10 most popular entertainment venues.",
     "opening_hours": "Opening hours",

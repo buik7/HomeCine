@@ -161,8 +161,12 @@ body {
   letter-spacing: 2px;
   color: #717171;
   border-radius: 5px;
-  background-color: #d8d8d8;
+  background-color: #d8d8d88e;
   cursor: pointer;
+}
+
+#time .tab-contents .time__item__right h5 span.time-yes:hover {
+  background-color: #d8d8d8;
 }
 
 #time .tab-contents .time__item__right h5 span.time-no {

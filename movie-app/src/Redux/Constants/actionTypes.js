@@ -13,4 +13,7 @@ export const actionTypes = {
 
   // LANGUAGE
   CHANGE_LANGUAGE: "CHANGE_LANGUAGE",
+
+  // TICKET
+  BOOK_TICKET: "BOOK_TICKET",
 };
