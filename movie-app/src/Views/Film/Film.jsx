@@ -126,9 +126,16 @@ const Film = (props) => {
                         <a
                           className="venobox btn btn-trailer"
                           data-vbtype="video"
-                          href={film.trailer}
                         >
-                          <i className="fas fa-play" />
+                          <i
+                            className="fas fa-play"
+                            onClick={() => {
+                              setModal({
+                                on: true,
+                                filmUrl: film.trailer,
+                              });
+                            }}
+                          />
                         </a>
                         <h2
                           onClick={() => {
@@ -166,9 +173,16 @@ const Film = (props) => {
                         <a
                           className="venobox btn btn-trailer"
                           data-vbtype="video"
-                          href={film.trailer}
                         >
-                          <i className="fas fa-play" />
+                          <i
+                            className="fas fa-play"
+                            onClick={() => {
+                              setModal({
+                                on: true,
+                                filmUrl: film.trailer,
+                              });
+                            }}
+                          />
                         </a>
                         <h2
                           onClick={() => {
