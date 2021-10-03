@@ -32,6 +32,7 @@ const Header = (props) => {
       payload: null,
     });
     localStorage.removeItem(localStorageKeys.ACCESS_TOKEN);
+    props.history.push("/");
   }, [dispatch]);
 
   return (
@@ -114,9 +115,9 @@ const Header = (props) => {
               </div>
             ) : (
               <div className="header__login">
-                <a href="#">
+                <NavLink to="/signin">
                   <i className="far fa-user mr-1" /> {t("signin")}
-                </a>
+                </NavLink>
               </div>
             )}
           </div>
@@ -183,9 +184,9 @@ const Header = (props) => {
                 src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/530/5882468530_85690e2b-cad3-4b22-af20-b5ded179944f.png?cb=1629727349"
                 alt="Logo"
               />
-              <a href="#">
-                <i className="far fa-user mr-1" /> Đăng nhập
-              </a>
+              <NavLink to="/signin">
+                <i className="far fa-user mr-1" /> {t("signin")}
+              </NavLink>
             </div>
             <div className="header__mobile__right">
               <a
@@ -206,22 +207,25 @@ const Header = (props) => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Tìm kiếm phim, diễn viên, ..."
+                      placeholder={t("search")}
                     />
                     <i className="fas fa-search" />
                   </div>
                 </div>
                 <NavLink className="dropdown-item" to="/" exact>
-                  TRANG CHỦ
+                  {t("home")}
                 </NavLink>
                 <NavLink className="dropdown-item" to="/film">
-                  PHIM
+                  {t("film")}
+                </NavLink>
+                <NavLink className="dropdown-item" to="/contact">
+                  {t("contact")}
                 </NavLink>
                 <NavLink className="dropdown-item" to="/event">
-                  SỰ KIỆN
+                  {t("event")}
                 </NavLink>
                 <NavLink className="dropdown-item" to="/profile">
-                  THÔNG TIN TÀI KHOẢN
+                  {t("profile")}
                 </NavLink>
               </div>
             </div>

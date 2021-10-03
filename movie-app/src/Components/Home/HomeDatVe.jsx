@@ -25,7 +25,7 @@ const renderDates = () => {
     let month = newDay.month() + 1;
     let year = newDay.year();
     rows.push(
-      <option value={newDay} key={day}>
+      <option value={`${day}:${month}`} key={day}>
         {day}/{month}/{year}
       </option>
     );
@@ -69,12 +69,11 @@ const HomeDatVe = (props) => {
         if (cumRap.maCumRap === maCumRap) {
           return cumRap?.lichChieuPhim
             .filter((lichChieu) => {
-              const today = dayjs();
+              const [ngayChieuDate, ngayChieuMonth] = ngayChieu.split(":");
               const lichChieuDate = dayjs(lichChieu.ngayChieuGioChieu);
-
               return (
-                today.date() === lichChieuDate.date() &&
-                today.month() === lichChieuDate.month()
+                parseInt(ngayChieuDate) === lichChieuDate.date() &&
+                parseInt(ngayChieuMonth) === lichChieuDate.month() + 1
               );
             })
             .map((item, index) => {
@@ -105,15 +104,17 @@ const HomeDatVe = (props) => {
       alert(t("alert_book_ticket"));
       return;
     }
-    dispatch({
-      type: actionTypes.BOOK_TICKET,
-      payload: {
-        lichChieu: gioChieu,
-        maCumRap: maCumRap,
-      },
-    });
+    // dispatch({
+    //   type: actionTypes.BOOK_TICKET,
+    //   payload: {
+    //     lichChieu: gioChieu,
+    //     maCumRap: maCumRap,
+    //     maPhim: maPhim,
+    //   },
+    // });
     localStorage.setItem(localStorageKeys.TICKET_DETAIL, gioChieu);
-    props.history.push("/datve");
+    const maLichChieu = JSON.parse(gioChieu).maLichChieu;
+    props.history.push(`/datve/${maLichChieu}`);
   }, [formik]);
 
   return (

@@ -1,0 +1,61 @@
+.trapezoid {
+  border-bottom: 50px solid gray;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  height: 0;
+  width: 100%;
+  opacity: 0.25;
+  filter: drop-shadow(0px 128px 102px rgba(120, 103, 103, 0.38));
+  -webkit-filter: drop-shadow(0px 128px 102px rgba(120, 103, 103, 0.38));
+  -moz-filter: drop-shadow(0px 128px 102px rgba(120, 103, 103, 0.38));
+}
+
+.ghe {
+  /* Ghế thường */
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  background-color: rgb(123, 122, 122);
+  color: #fff;
+}
+
+.gheDaDat {
+  background-color: rgb(232, 76, 76);
+  cursor: no-drop;
+  opacity: 0.5;
+}
+
+.gheDangDat {
+  background-color: rgb(18, 176, 18) !important;
+}
+
+.gheVip {
+  background-color: rgb(247, 195, 0);
+}
+
+.seatThuong {
+  color: green;
+  font-size: 1.25rem;
+}
+
+.seatVip {
+  font-size: 1.25rem;
+  color: rgb(247, 195, 0);
+}
+
+.gheDaDuocDat {
+  /* ghế đc đặt bởi chính mình */
+  background-color: rgb(246, 246, 246);
+  -webkit-box-shadow: -1px 2px 18px -6px #000000;
+  box-shadow: -1px 2px 18px -6px #000000;
+  color: orange;
+  border: 1px solid #000;
+}
+
+.gheKhachDat {
+  background-color: rgb(242, 25, 191) !important;
+  cursor: no-drop;
+}

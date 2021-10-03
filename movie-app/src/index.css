@@ -8,3 +8,26 @@
 body {
   font-family: "Roboto", sans-serif;
 }
+
+.modal_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+  /* pointer-events: none; */
+}
+
+.modal_film {
+  background-color: #fff;
+
+  display: none;
+  max-width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Table } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { getFilmListThunk } from "../../Redux/Thunks/filmThunk";
+import { useTranslation } from "react-i18next";
 
 const Search = (props) => {
   const dispatch = useDispatch();
@@ -10,23 +11,24 @@ const Search = (props) => {
   }, [dispatch]);
 
   const filmList = useSelector((state) => state.filmReducer.filmList);
-  const keyWord = props.match.params.keyword;
+  const keyWord = props.match.params.keyword.toLowerCase();
+  const { t } = useTranslation();
 
   const columns = [
     {
-      title: "Tên phim",
+      title: t("search_film_name"),
       dataIndex: "tenPhim",
       key: "tenPhim",
     },
     {
-      title: "Hình ảnh",
+      title: t("search_film_img"),
       render: (text, record, index) => {
         return (
           <img
             src={record.hinhAnh}
             width="100"
             height="100"
-            alt="Hình ảnh phim"
+            alt="Film imgg"
           ></img>
         );
       },
@@ -41,7 +43,7 @@ const Search = (props) => {
               props.history.push(`/detail/${record.maPhim}`);
             }}
           >
-            Đặt vé
+            {t("book_tickets")}
           </button>
         );
       },
@@ -55,7 +57,7 @@ const Search = (props) => {
           film.tenPhim.toLowerCase().startsWith(keyWord)
         )}
         columns={columns}
-        rowKey={"tenPhim"}
+        rowKey={"maPhim"}
       />
     </div>
   );

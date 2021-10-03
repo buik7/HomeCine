@@ -8,3 +8,11 @@ export const getUserLoginService = () => {
     url: `${DOMAIN}/QuanLyNguoiDung/ThongTinTaiKhoan`,
   });
 };
+
+export const updateUserService = (data) => {
+  return request({
+    method: "PUT",
+    url: `${DOMAIN}/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+    data: data,
+  });
+};

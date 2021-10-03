@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 
@@ -32,6 +32,10 @@ const Film = (props) => {
 
   const filmList = useSelector((state) => state.filmReducer.filmList);
   const { t } = useTranslation();
+  const [modal, setModal] = useState({
+    on: false,
+    filmUrl: "",
+  });
 
   return (
     <section id="new-in" className="container">
@@ -54,7 +58,12 @@ const Film = (props) => {
           </li>
         </ul>
       </div>
-      <div className="tab-content">
+      <div
+        className="tab-content"
+        style={{
+          pointerEvents: modal.on ? "none" : "",
+        }}
+      >
         <div className="tab-pane container active" id="dangchieu">
           <div className="row listMovie" id="dangchieu">
             {filmList
@@ -70,9 +79,16 @@ const Film = (props) => {
                         <a
                           className="venobox btn btn-trailer"
                           data-vbtype="video"
-                          href={film.trailer}
                         >
-                          <i className="fas fa-play" />
+                          <i
+                            className="fas fa-play"
+                            onClick={() => {
+                              setModal({
+                                on: true,
+                                filmUrl: film.trailer,
+                              });
+                            }}
+                          />
                         </a>
                         <h2
                           onClick={() => {
@@ -175,6 +191,31 @@ const Film = (props) => {
               })}
           </div>
         </div>
+      </div>
+      <div>
+        {modal.on ? (
+          <div
+            className="modal_container"
+            onClick={() => {
+              setModal({
+                on: false,
+                filmUrl: "",
+              });
+            }}
+          >
+            <iframe
+              width={window.innerWidth > 560 ? 560 * 2 : 560}
+              height={window.innerWidth > 560 ? 315 * 2 : 315}
+              src={modal.filmUrl}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </section>
   );

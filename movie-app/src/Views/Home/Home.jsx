@@ -27,7 +27,7 @@ const Home = (props) => {
             <div className="carousel-item active">
               <img
                 className="d-block w-100"
-                src="http://vivuphim.vn/wp-content/uploads/2021/04/a4cea40b4548ac16f559.jpg"
+                src="https://film-book.com/wp-content/uploads/2019/12/no-time-to-die-movie-poster-banner-01-700x400.jpg"
                 alt="First slide"
               />
             </div>
@@ -41,7 +41,7 @@ const Home = (props) => {
             <div className="carousel-item">
               <img
                 className="d-block w-100"
-                src="https://kenhcine.cgv.vn/media/wysiwyg/FLIM/spiderman-02.jpg"
+                src="https://cdn.advertserve.com/images/cineworld.advertserve.com/servlet/files/1285"
                 alt="Third slide"
               />
             </div>

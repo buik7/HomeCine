@@ -1,0 +1,8 @@
+.forgot__password {
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.forgot__password:hover {
+  color: #1890ff;
+}

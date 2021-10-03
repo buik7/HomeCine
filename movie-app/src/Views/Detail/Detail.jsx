@@ -142,13 +142,15 @@ const Detail = (props) => {
                     {t("watch_trailer")}
                   </a>
                 </button>
-                <button className="btn btn__buy">{t("book_tickets")}</button>
+                <a className="btn btn__buy" href="#detail_book_ticket">
+                  {t("book_tickets")}
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <div className="container-fluid">
+      <div id="detail_book_ticket" className="container-fluid">
         <div className="row">
           <div className="col-1"></div>
           <div className="col-1 d-flex flex-column" style={{ paddingTop: 50 }}>
@@ -256,18 +258,21 @@ const Detail = (props) => {
                                         <span
                                           className="time-yes"
                                           onClick={() => {
-                                            dispatch({
-                                              type: actionTypes.BOOK_TICKET,
-                                              payload: {
-                                                lichChieu: JSON.stringify(item),
-                                                maCumRap: cumRap.maCumRap,
-                                              },
-                                            });
+                                            // dispatch({
+                                            //   type: actionTypes.BOOK_TICKET,
+                                            //   payload: {
+                                            //     lichChieu: JSON.stringify(item),
+                                            //     maCumRap: cumRap.maCumRap,
+                                            //     maPhim: filmDetail.maPhim,
+                                            //   },
+                                            // });
                                             localStorage.setItem(
                                               localStorageKeys.TICKET_DETAIL,
                                               JSON.stringify(item)
                                             );
-                                            props.history.push("/datve");
+                                            props.history.push(
+                                              `/datve/${item.maLichChieu}`
+                                            );
                                           }}
                                         >
                                           {`${formatNumber(
